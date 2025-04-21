@@ -1,188 +1,102 @@
+# 🎥 YouTubeCrawler: Python Wrapper for YouTube Scraping
 
+A user-friendly and feature-rich Python wrapper to extract detailed information about **YouTube videos and channels**.
 
+📚 **Readable and well-documented:**  
+👉 [GitHub Repository](https://github.com/KeinShin/youtubecrawler)
 
-## YouTubeCrawle Wrapper for python
+---
 
+## 🚀 Installation
 
-
-# readable and good Docs at https://github.com/KeinShin/youtubecrawler
-
-
-- Install Using pip
-``` 
+```bash
 pip3 install youtubecrawler
-
 ```
 
+---
 
-# Documentation
+## 📦 Initialization
 
-> Initialize Wrapper
-
-```
+```python
 from youtubecrawler import crawl
 
+# Using video name
+yt = crawl(video_name="xyz")
 
+# Or using video link
+yt = crawl(video_link="https://youtube.com/xyz")
 
-yt=crawl(video_name="xyz)
-
+# Or using video ID
+yt = crawl(video_id="abc123")
 ```
 
-**You can also use**
+---
 
+## 🎬 Video Features
+
+You can extract all details in one go or call them individually.
+
+### ✅ Get All Video Details
+
+```python
+video = yt.VideoDetails()
 ```
 
-yt=crawl(video_link=link)
+### ✅ Individual Info
 
-yt=crawl(video_id=video_id)
-
+```python
+views = yt.views()
+tags = yt.keyword()
+link = yt.videolink()
+likes = yt.likes_dislikes()[1]
+dislikes = yt.likes_dislikes()[2]
+upload_time = yt.videoUploadTime()
+title = yt.VidTitle()
+description = yt.description()
+uploader = yt.channel()
 ```
 
-Wrapper Is Capable of 
+---
 
-**For Video**
+## 📺 Channel Features
 
-> Getting Video Views
-> Getting video tags
-> Getting Video Description
-> Getting Video Title
-> Getting Likes and Dislikes
-> Getting Upload Time
-> Getting Uploader Information
+### ✅ Initialization
 
-**For channels**
-Can Scrape Any info about the channel
-__Like__
-> Last Date Joined
-> Latest Video Details
-> Latest Community Post
-> Channel Description
-> Info about other channels of the video
-> Subs of the channel ( by name)
-
-## Videos
-
-**Gather everything in a single call**
-
-```
-video=yt.VideoDetails()
-```
-
-__Gather Info Separately__
-
-**Get Views of the video**
-
-```
-
-veiws=yt.veiws()
-
-```
-
-**Get tags of the video**
-
-```
-tags=yt.keyword()
-```
-
-**Get video link**
-
-```
-link=yt.videolink()
-```
-
-**Likes and dislikes of the video**
-
-```
-likes=yt.likes_dislikes()[1]
-dislikes=yt.likes_dislikes()[2]
-```
-
-**Get Upload time**
-
-```
-uploadtime=yt.videoUploadTime()
-```
-
-**Get Video Title**
-
-```
-title=yt.VidTitle()
-```
-
-**Get video description**
-
-
-```
-description=yt.description()
-```
-
-
-**Get Uploader Information**
-
-```
-
-uploader=yt.channel()
-```
-
-
-**Get Video Views**
-
-```
-views=yt.views()
-```
-
-
-**Get Video Link**
-
-```
-videolink=yt.videolink()
-
-```
-
-## Channels
-
-```
+```python
 from youtubecrawler.channel import channel
 
-ch=channel(channelname="CarryMinati")
+# Using channel name
+ch = channel(channelname="CarryMinati")
 
+# Using channel link
+ch = channel(channellink="https://youtube.com/@carryminati")
+
+# Using channel ID
+ch = channel(channelid="/channel/UC0IWRLai-BAwci_e9MylNGw")
 ```
 
-Other parameters
-```
-> ch = channel(channellink=channellink)
-> ch = channel(channelid='/channel/UC0IWRLai-BAwci_e9MylNGw')
-```
+### ✅ Channel Info
 
-**Get Subs of the channel**
-__Use full with name__
-
-```
-subs=ch.subs()
+```python
+subs = ch.subs()                      # Get subscriber info
+latest_video = ch.latest_video()     # Latest video details
+post = ch.latest_community()         # Latest community post
+other_channels = ch.spareChannels()  # Linked channels
+about_links = ch.links()             # Links in About section
 ```
 
-**Get Latest Video**
+---
 
-```
-subs=ch.latest_video()
-```
+## ✅ Summary
 
-**Get Latest Community Post**
+- 📹 Get video stats, uploader info, and content details
+- 📡 Scrape channel metadata, community posts, linked channels, etc.
+- 🛠 Built for flexibility: Use name, link, or ID as input
+- 🔥 Ideal for YouTube data scraping, automation, and analytics
 
-```
-post=ch.latest_community()
-```
+---
 
-**Get That user other channels**
-```
-otherchannels=ch.spareChannels()
-```
+## 🧑‍💻 Author
 
-**Get links of about**
-
-```
-aboutlinks=ch.links()
-```
-
-
-
+Made with ❤️ by KeinShin  
+📌 [GitHub: KeinShin](https://github.com/KeinShin)
